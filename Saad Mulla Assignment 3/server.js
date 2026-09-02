@@ -8,7 +8,7 @@ const restaurantRoutes = require('./routes/restaurantRoutes');
 const menuRoutes = require('./routes/menuRoutes');
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 connectDB();
 
@@ -24,6 +24,6 @@ app.use('/', authRoutes);
 app.use('/restaurants', restaurantRoutes);
 app.use('/menu', menuRoutes);
 
-app.listen(port, () => {
+app.listen(port, '0.0.0.0', () => {
     console.log(`Server running on port ${port}`);
 });
